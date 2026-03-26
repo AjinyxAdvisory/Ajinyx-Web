@@ -1,0 +1,121 @@
+import { motion, useScroll, useTransform } from 'motion/react';
+import { Mail, Phone, MapPin, ExternalLink } from 'lucide-react';
+import { Link } from 'react-router-dom';
+
+export default function Footer() {
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Ajinyx",
+    "image": "https://ais-dev-4egkxzciusngnvshspwrur-560263232515.us-east1.run.app/logo.png",
+    "@id": "",
+    "url": "https://www.ajinyx.com",
+    "telephone": "806-331-9686",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Amarillo",
+      "addressRegion": "TX",
+      "postalCode": "79101",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 35.222,
+      "longitude": -101.8313
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Amarillo" },
+      { "@type": "City", "name": "Canyon" },
+      { "@type": "City", "name": "Borger" },
+      { "@type": "City", "name": "Dumas" },
+      { "@type": "City", "name": "Pampa" },
+      { "@type": "City", "name": "Hereford" },
+      { "@type": "City", "name": "Dalhart" },
+      { "@type": "City", "name": "Perryton" },
+      { "@type": "City", "name": "Childress" },
+      { "@type": "City", "name": "Clarendon" }
+    ],
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "09:00",
+      "closes": "17:00"
+    }
+  };
+
+  return (
+    <footer className="bg-black border-t border-zinc-900 pt-20 pb-10">
+      <script type="application/ld+json">
+        {JSON.stringify(schemaData)}
+      </script>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+          <div className="space-y-6">
+            <span className="text-2xl font-black tracking-tighter text-white">
+              AJI<span className="text-cyan-500">NYX</span>
+            </span>
+            <p className="text-zinc-500 text-sm leading-relaxed">
+              The leading Amarillo Texas AI Expert. We build systems that give you your time and business back.
+            </p>
+          </div>
+
+          <div>
+            <h4 className="text-white font-bold mb-6">Services</h4>
+            <ul className="space-y-4 text-sm text-zinc-500">
+              <li><a href="/enterprise" className="hover:text-cyan-500 transition-colors">Enterprise Advisory</a></li>
+              <li><a href="/small-business" className="hover:text-cyan-500 transition-colors">Small Business Systems</a></li>
+              <li><a href="/custom-solutions" className="hover:text-cyan-500 transition-colors">Custom AI Solutions</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-white font-bold mb-6">Consulting Hours</h4>
+            <ul className="space-y-4 text-sm text-zinc-500">
+              <li>Monday - Friday: 9 AM to 5 PM</li>
+              <li className="text-cyan-500 font-medium">AI Systems Availability: 24/7/365</li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-white font-bold mb-6">Contact</h4>
+            <ul className="space-y-4 text-sm text-zinc-500">
+              <li className="flex items-center gap-2">
+                <Phone size={16} className="text-cyan-500" />
+                <a href="tel:806-331-9686" className="hover:text-white transition-colors">806-331-9686</a>
+              </li>
+              <li className="flex items-center gap-2">
+                <MapPin size={16} className="text-cyan-500" />
+                <span>Texas Panhandle Service Area</span>
+              </li>
+              <li>
+                <Link 
+                  to="/book/meeting" 
+                  className="inline-flex items-center gap-2 text-cyan-500 hover:text-cyan-400 font-bold mt-2"
+                >
+                  Book a Meeting <ExternalLink size={14} />
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="border-t border-zinc-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-zinc-600 text-xs">
+            © {new Date().getFullYear()} Ajinyx. All rights reserved.
+          </p>
+          <div className="flex gap-6 text-xs text-zinc-600">
+            <a href="#" className="hover:text-zinc-400 transition-colors">Privacy Policy</a>
+            <a href="#" className="hover:text-zinc-400 transition-colors">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
