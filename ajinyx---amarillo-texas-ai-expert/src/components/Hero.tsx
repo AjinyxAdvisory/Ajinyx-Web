@@ -43,15 +43,15 @@ export default function Hero() {
           className="space-y-8"
         >
           <div className="inline-block px-4 py-1.5 rounded-full border border-cyan-500/30 bg-cyan-500/5 text-cyan-400 text-sm font-bold tracking-wider uppercase">
-            Amarillo Texas AI Expert
+            Ajinyx Advisory Group · Amarillo, Texas Panhandle
           </div>
-          
+
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[1.1] tracking-tight">
-            We Build AI Systems That Give You Your <span className="text-cyan-500">Time and Business Back.</span>
+            AI Automation Built for Amarillo <span className="text-cyan-500">Businesses That Want Their Time Back.</span>
           </h1>
 
           <p className="max-w-2xl mx-auto text-xl text-zinc-400 leading-relaxed">
-            Stop losing hours to repetitive tasks. We design high-performance digital strategists that work for you, not against you.
+            Ajinyx Advisory Group designs voice AI, chat assistants, and custom business systems for Amarillo and the Texas Panhandle. We capture leads, book appointments, and quietly reduce the manual work that slows your operation down.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-8">

@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ExitIntentPopup from './components/ExitIntentPopup';
+import SEO from './components/SEO';
 import Home from './pages/Home';
 import EnterpriseAdvisory from './pages/EnterpriseAdvisory';
 import SmallBusinessGrowth from './pages/SmallBusinessGrowth';
@@ -20,6 +21,7 @@ function ScrollToTop() {
 export default function App() {
   return (
     <Router>
+      <SEO />
       <ScrollToTop />
       <div className="min-h-screen bg-black text-white selection:bg-cyan-500/30 selection:text-cyan-400">
         <Navbar />

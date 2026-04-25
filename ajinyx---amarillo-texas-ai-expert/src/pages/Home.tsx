@@ -58,6 +58,45 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="py-24 bg-zinc-950 border-b border-zinc-900">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="space-y-8">
+            <div className="space-y-4">
+              <h2 className="text-4xl md:text-5xl font-black text-white">
+                AI Automation & Strategy for Amarillo Businesses
+              </h2>
+              <p className="text-lg text-zinc-400 leading-relaxed">
+                Ajinyx Advisory Group works with companies in Amarillo, Canyon, Borger, Pampa, and across the Texas Panhandle. We design AI automation, voice AI, and chat assistants that capture leads the moment they come in, book appointments directly into your calendar, and reduce the manual work that eats into your week.
+              </p>
+              <p className="text-lg text-zinc-400 leading-relaxed">
+                Instead of bolting on generic tools, we build custom business systems shaped around how your team actually operates. The result is a quieter inbox, a fuller calendar, and a business that runs with less friction, from the first inquiry to the closed appointment.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="rounded-3xl border border-zinc-800 bg-black/40 p-6">
+                <h3 className="text-xl font-bold text-white mb-3">Voice AI & Chat Assistants</h3>
+                <p className="text-zinc-400 leading-relaxed">
+                  Conversational systems that answer, qualify, and book appointments for Amarillo customers around the clock.
+                </p>
+              </div>
+              <div className="rounded-3xl border border-zinc-800 bg-black/40 p-6">
+                <h3 className="text-xl font-bold text-white mb-3">Custom Business Systems</h3>
+                <p className="text-zinc-400 leading-relaxed">
+                  AI automation, lead capture, and internal tools built around the exact way your team works, not a template.
+                </p>
+              </div>
+              <div className="rounded-3xl border border-zinc-800 bg-black/40 p-6">
+                <h3 className="text-xl font-bold text-white mb-3">Texas Panhandle Strategy</h3>
+                <p className="text-zinc-400 leading-relaxed">
+                  Advisory and implementation for businesses serving Amarillo, Canyon, Borger, Pampa, Dumas, and nearby markets.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <RoutingHub />
       
       <FAQ />
