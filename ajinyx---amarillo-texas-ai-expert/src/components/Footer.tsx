@@ -1,23 +1,19 @@
 import { motion, useScroll, useTransform } from 'motion/react';
 import { Mail, Phone, MapPin, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { businessAddressSchema, businessInfo } from '../lib/businessInfo';
 
 export default function Footer() {
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "Ajinyx",
+    "name": businessInfo.name,
     "image": "https://ais-dev-4egkxzciusngnvshspwrur-560263232515.us-east1.run.app/logo.png",
-    "@id": "",
-    "url": "https://www.ajinyx.com",
-    "telephone": "806-331-9686",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Amarillo",
-      "addressRegion": "TX",
-      "postalCode": "79101",
-      "addressCountry": "US"
-    },
+    "@id": `${businessInfo.url}/#organization`,
+    "url": businessInfo.url,
+    "telephone": businessInfo.telephone,
+    "hasMap": businessInfo.address.mapsUrl,
+    "address": businessAddressSchema,
     "geo": {
       "@type": "GeoCoordinates",
       "latitude": 35.222,
@@ -88,11 +84,23 @@ export default function Footer() {
             <h4 className="text-white font-bold mb-6">Contact</h4>
             <ul className="space-y-4 text-sm text-zinc-500">
               <li className="flex items-center gap-2">
-                <Phone size={16} className="text-cyan-500" />
-                <a href="tel:806-331-9686" className="hover:text-white transition-colors">806-331-9686</a>
+                <Phone size={16} className="text-cyan-500" aria-hidden="true" />
+                <a href={`tel:${businessInfo.telephone}`} className="hover:text-white transition-colors">{businessInfo.telephone}</a>
+              </li>
+              <li className="flex items-start gap-2">
+                <MapPin size={16} className="mt-0.5 shrink-0 text-cyan-500" aria-hidden="true" />
+                <a
+                  href={businessInfo.address.mapsUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-white transition-colors"
+                  aria-label={`View directions to ${businessInfo.name} at ${businessInfo.address.display}`}
+                >
+                  {businessInfo.address.display}
+                </a>
               </li>
               <li className="flex items-center gap-2">
-                <MapPin size={16} className="text-cyan-500" />
+                <MapPin size={16} className="text-cyan-500" aria-hidden="true" />
                 <span>Texas Panhandle Service Area</span>
               </li>
               <li>

@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { businessAddressSchema, businessInfo } from '../lib/businessInfo';
 
-const SITE_NAME = 'Ajinyx Advisory Group';
-const BASE_URL = 'https://www.ajinyx.com';
+const SITE_NAME = businessInfo.name;
+const BASE_URL = businessInfo.url;
 const DEFAULT_OG_IMAGE = 'https://www.ajinyx.com/og-image.jpg';
 
 type RouteSeo = {
@@ -88,11 +89,14 @@ function upsertJsonLd(id: string, data: Record<string, unknown> | null) {
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'ProfessionalService',
-  name: 'Ajinyx Advisory Group',
+  name: businessInfo.name,
+  '@id': `${BASE_URL}/#organization`,
   url: BASE_URL,
   logo: `${BASE_URL}/logo.png`,
+  telephone: businessInfo.telephone,
+  hasMap: businessInfo.address.mapsUrl,
   description:
-    'Ajinyx Advisory Group provides AI automation consulting, AI strategy, AI voice assistants, AI chat assistants, and custom AI software for Amarillo and Texas Panhandle businesses.',
+    `${businessInfo.name} provides AI automation consulting, AI strategy, AI voice assistants, AI chat assistants, custom AI software, and marketing services from ${businessInfo.address.display} for Amarillo and Texas Panhandle businesses.`,
   areaServed: [
     { '@type': 'City', name: 'Amarillo, Texas' },
     { '@type': 'Place', name: 'Texas Panhandle' },
@@ -107,18 +111,21 @@ const organizationSchema = {
     'AI chat assistants',
     'Custom AI software',
   ],
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'Amarillo',
-    addressRegion: 'TX',
-    addressCountry: 'US',
-  },
+  address: businessAddressSchema,
 };
 
 const homepageFaqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
   mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Where is Ajinyx Advisory Group located?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: `Ajinyx Advisory Group is located at ${businessInfo.address.display}. We work with businesses in Amarillo, Canyon, Borger, Pampa, Dumas, and across the Texas Panhandle, with select consulting, automation, web design, and marketing services available outside the region.`,
+      },
+    },
     {
       '@type': 'Question',
       name: 'What does Ajinyx Advisory Group do?',
@@ -132,7 +139,7 @@ const homepageFaqSchema = {
       name: 'What areas does Ajinyx serve?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'We serve Amarillo, Canyon, Borger, Pampa, Dumas, and the broader Texas Panhandle region. Our systems are built for the way regional businesses actually operate.',
+        text: `Ajinyx Advisory Group is located at ${businessInfo.address.display}. We serve Amarillo, Canyon, Borger, Pampa, Dumas, and the broader Texas Panhandle region. Our systems are built for the way regional businesses actually operate.`,
       },
     },
     {
@@ -187,15 +194,12 @@ const marketingServiceSchema = {
     'Videography, drone footage, commercials, Reels, Google Business Profile optimization, Google LSA management, social media management, and custom web design for Amarillo and Texas Panhandle businesses.',
   provider: {
     '@type': 'ProfessionalService',
-    name: 'Ajinyx Advisory Group',
+    name: businessInfo.name,
+    '@id': `${BASE_URL}/#organization`,
     url: BASE_URL,
-    telephone: '806-331-9686',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Amarillo',
-      addressRegion: 'TX',
-      addressCountry: 'US',
-    },
+    telephone: businessInfo.telephone,
+    hasMap: businessInfo.address.mapsUrl,
+    address: businessAddressSchema,
   },
   areaServed: [
     { '@type': 'City', name: 'Amarillo, Texas' },
@@ -297,7 +301,7 @@ const marketingFaqSchema = {
       name: 'Do you work only with businesses in Amarillo?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Ajinyx is based in Amarillo and serves businesses throughout the Texas Panhandle, but select marketing, web design, automation, and consulting services can also be delivered to businesses outside the region.',
+        text: `Ajinyx is located at ${businessInfo.address.display} and serves businesses throughout the Texas Panhandle, but select marketing, web design, automation, and consulting services can also be delivered to businesses outside the region.`,
       },
     },
   ],

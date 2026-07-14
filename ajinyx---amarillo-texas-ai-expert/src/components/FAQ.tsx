@@ -1,8 +1,13 @@
 import { motion, AnimatePresence } from 'motion/react';
 import { useState } from 'react';
 import { Plus, Minus } from 'lucide-react';
+import { businessInfo } from '../lib/businessInfo';
 
 const faqs = [
+  {
+    question: "Where is Ajinyx Advisory Group located?",
+    answer: `Ajinyx Advisory Group is located at ${businessInfo.address.display}. We work with businesses in Amarillo, Canyon, Borger, Pampa, Dumas, and across the Texas Panhandle, with select consulting, automation, web design, and marketing services available outside the region.`
+  },
   {
     question: "What exactly does a custom AI system do for my daily operations?",
     answer: "A custom AI system acts as an invisible, highly efficient employee that never sleeps. It handles the repetitive, time consuming tasks like answering common customer questions, booking appointments, and following up on leads, freeing you up to focus on the high level work of actually growing your company. It essentially gives you your time back while ensuring no potential customer is ever ignored."

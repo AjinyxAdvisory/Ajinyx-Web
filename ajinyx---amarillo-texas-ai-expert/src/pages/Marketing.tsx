@@ -28,6 +28,7 @@ import {
   type LucideIcon,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { businessInfo } from '../lib/businessInfo';
 
 type ServiceOverview = {
   id: string;
@@ -428,7 +429,7 @@ const faqs: FaqItem[] = [
     id: 'amarillo-only',
     question: 'Do you work only with businesses in Amarillo?',
     answer:
-      'Ajinyx is based in Amarillo and serves businesses throughout the Texas Panhandle, but select marketing, web design, automation, and consulting services can also be delivered to businesses outside the region.',
+      `Ajinyx is located at ${businessInfo.address.display} and serves businesses throughout the Texas Panhandle, but select marketing, web design, automation, and consulting services can also be delivered to businesses outside the region.`,
   },
 ];
 
