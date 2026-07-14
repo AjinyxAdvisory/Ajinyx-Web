@@ -7,6 +7,7 @@ import SEO from './components/SEO';
 import Home from './pages/Home';
 import EnterpriseAdvisory from './pages/EnterpriseAdvisory';
 import SmallBusinessGrowth from './pages/SmallBusinessGrowth';
+import Marketing from './pages/Marketing';
 import CustomSolutions from './pages/CustomSolutions';
 import BookMeeting from './pages/BookMeeting';
 
@@ -29,6 +30,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/enterprise" element={<EnterpriseAdvisory />} />
           <Route path="/small-business" element={<SmallBusinessGrowth />} />
+          <Route path="/marketing" element={<Marketing />} />
           <Route path="/custom-solutions" element={<CustomSolutions />} />
           <Route path="/book/meeting" element={<BookMeeting />} />
         </Routes>

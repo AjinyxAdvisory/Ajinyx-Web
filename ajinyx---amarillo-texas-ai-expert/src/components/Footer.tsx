@@ -69,9 +69,10 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-bold mb-6">Services</h4>
             <ul className="space-y-4 text-sm text-zinc-500">
-              <li><a href="/enterprise" className="hover:text-cyan-500 transition-colors">Enterprise Advisory</a></li>
-              <li><a href="/small-business" className="hover:text-cyan-500 transition-colors">Small Business Systems</a></li>
-              <li><a href="/custom-solutions" className="hover:text-cyan-500 transition-colors">Custom AI Solutions</a></li>
+              <li><Link to="/enterprise" className="hover:text-cyan-500 transition-colors">Enterprise Advisory</Link></li>
+              <li><Link to="/small-business" className="hover:text-cyan-500 transition-colors">Small Business Systems</Link></li>
+              <li><Link to="/marketing" className="hover:text-cyan-500 transition-colors">Marketing Services</Link></li>
+              <li><Link to="/custom-solutions" className="hover:text-cyan-500 transition-colors">Custom AI Solutions</Link></li>
             </ul>
           </div>
 

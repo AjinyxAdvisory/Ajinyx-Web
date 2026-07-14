@@ -28,6 +28,11 @@ const seoByPath: Record<string, RouteSeo> = {
     description:
       'AI automation for Amarillo small businesses. Lead capture, appointment booking, AI voice assistants, AI chat assistants, and follow-up systems built by Ajinyx Advisory Group.',
   },
+  '/marketing': {
+    title: 'Marketing Agency in Amarillo, TX | Ajinyx Advisory Group',
+    description:
+      'Ajinyx provides videography, drone footage, commercials, Reels, Google Business Profile optimization, Google LSA management, social media management, and custom web design for Amarillo and Texas Panhandle businesses.',
+  },
   '/custom-solutions': {
     title: 'Custom AI Systems & Software in Amarillo, TX | Ajinyx Advisory Group',
     description:
@@ -173,6 +178,131 @@ const homepageFaqSchema = {
   ],
 };
 
+const marketingServiceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Full-Service Marketing Services',
+  url: `${BASE_URL}/marketing`,
+  description:
+    'Videography, drone footage, commercials, Reels, Google Business Profile optimization, Google LSA management, social media management, and custom web design for Amarillo and Texas Panhandle businesses.',
+  provider: {
+    '@type': 'ProfessionalService',
+    name: 'Ajinyx Advisory Group',
+    url: BASE_URL,
+    telephone: '806-331-9686',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Amarillo',
+      addressRegion: 'TX',
+      addressCountry: 'US',
+    },
+  },
+  areaServed: [
+    { '@type': 'City', name: 'Amarillo, Texas' },
+    { '@type': 'Place', name: 'Texas Panhandle' },
+    { '@type': 'City', name: 'Canyon, Texas' },
+    { '@type': 'City', name: 'Pampa, Texas' },
+    { '@type': 'City', name: 'Borger, Texas' },
+    { '@type': 'City', name: 'Dumas, Texas' },
+    { '@type': 'City', name: 'Hereford, Texas' },
+  ],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Marketing Services',
+    itemListElement: [
+      'Videography',
+      'Drone videography',
+      'Commercial video production',
+      'Short-form video production',
+      'Google Business Profile optimization',
+      'Google Local Services Ads management',
+      'Social media management',
+      'Web design',
+    ].map((name) => ({
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name,
+        provider: {
+          '@type': 'ProfessionalService',
+          name: 'Ajinyx Advisory Group',
+        },
+      },
+    })),
+  },
+};
+
+const marketingFaqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Can Ajinyx manage all of our marketing?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Ajinyx can coordinate videography, Google Business Profile optimization, Google Local Services Ads, Facebook and Instagram management, and web design under one connected strategy. The exact scope is built around the business\'s goals, budget, current assets, and internal capabilities.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is Google Boost the same as Google Ads?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Google Boost is Ajinyx\'s name for Google Business Profile optimization, sometimes called GMB optimization. It focuses on strengthening the business\'s local profile, information, content, photos, services, reviews, and activity. Google LSA and other paid advertising are separate services.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Does Ajinyx guarantee first place on Google?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No ethical marketing company can guarantee a specific organic ranking, Local Services Ads position, number of leads, or Google badge. Ajinyx follows structured optimization and management practices designed to improve the account\'s quality, visibility, responsiveness, and conversion potential.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can one video shoot provide content for several months?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Depending on the business and production plan, one organized shoot can create a substantial library of footage. That footage may be repurposed into commercials, website videos, Reels, Shorts, service highlights, employee introductions, project videos, and future advertisements.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Will you post our content in local Facebook groups?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'When the client has appropriate access and the content is relevant, Ajinyx may distribute posts into local Facebook groups where administrator approval and group rules permit it. We prioritize useful, community-appropriate content and do not use spam-based posting methods.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Does the client pay Google advertising spend separately?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Google LSA and other advertising budgets are paid separately from Ajinyx\'s service or management fees unless a written proposal states otherwise.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can Ajinyx connect the website to our CRM and calendar?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Depending on the project, Ajinyx can connect websites to lead forms, appointment calendars, CRM systems, automated follow-up, AI chat assistants, voice assistants, and custom workflows.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do you work only with businesses in Amarillo?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Ajinyx is based in Amarillo and serves businesses throughout the Texas Panhandle, but select marketing, web design, automation, and consulting services can also be delivered to businesses outside the region.',
+      },
+    },
+  ],
+};
+
 export default function SEO() {
   const { pathname } = useLocation();
 
@@ -251,6 +381,8 @@ export default function SEO() {
 
     upsertJsonLd('organization', organizationSchema);
     upsertJsonLd('homepage-faq', pathname === '/' ? homepageFaqSchema : null);
+    upsertJsonLd('marketing-service', pathname === '/marketing' ? marketingServiceSchema : null);
+    upsertJsonLd('marketing-faq', pathname === '/marketing' ? marketingFaqSchema : null);
   }, [pathname]);
 
   return null;
