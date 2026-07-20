@@ -2,7 +2,7 @@ export const businessInfo = {
   name: 'Ajinyx Advisory Group',
   shortName: 'Ajinyx',
   url: 'https://www.ajinyx.com',
-  telephone: '806-331-9686',
+  telephone: '806-341-9686',
   address: {
     streetAddress: '600 S. Tyler Street',
     addressLocality: 'Amarillo',

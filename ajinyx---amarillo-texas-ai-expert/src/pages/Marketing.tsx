@@ -701,11 +701,11 @@ export default function Marketing() {
                 Book a Marketing Strategy Call
               </PrimaryButton>
               <a
-                href="tel:806-331-9686"
+                href={`tel:${businessInfo.telephone}`}
                 className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-zinc-700 bg-zinc-950 px-6 py-3 text-sm font-bold text-white transition-all hover:border-cyan-400 hover:text-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:ring-offset-2 focus-visible:ring-offset-black active:scale-95"
               >
                 <Phone size={18} aria-hidden="true" />
-                Call 806-331-9686
+                Call {businessInfo.telephone}
               </a>
             </div>
             <a
@@ -956,11 +956,11 @@ export default function Marketing() {
                   Book My Marketing Strategy Call
                 </PrimaryButton>
                 <a
-                  href="tel:806-331-9686"
+                  href={`tel:${businessInfo.telephone}`}
                   className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-zinc-700 bg-black/40 px-6 py-3 text-sm font-bold text-white transition-all hover:border-cyan-400 hover:text-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:ring-offset-2 focus-visible:ring-offset-black active:scale-95"
                 >
                   <Phone size={18} aria-hidden="true" />
-                  Call 806-331-9686
+                  Call {businessInfo.telephone}
                 </a>
               </div>
               <p className="mt-6 text-sm font-medium text-zinc-500">

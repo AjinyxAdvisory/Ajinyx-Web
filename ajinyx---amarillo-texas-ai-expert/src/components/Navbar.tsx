@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Menu, Phone, X } from 'lucide-react';
 import { Link, NavLink } from 'react-router-dom';
+import { businessInfo } from '../lib/businessInfo';
 
 const navItems = [
   { label: 'Enterprise', to: '/enterprise' },
@@ -55,7 +56,7 @@ export default function Navbar() {
 
           <div className="flex items-center gap-4">
             <a
-              href="tel:806-331-9686"
+              href={`tel:${businessInfo.telephone}`}
               className="flex items-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-black px-4 sm:px-6 py-2.5 rounded-full font-bold transition-all transform hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(6,182,212,0.3)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
             >
               <Phone size={18} aria-hidden="true" />
